@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload and Audio Player</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tải file văn bản cần chuyển sang giọng nói</h1>
+        <div class="switch-top">
+            <label class="switch"><input type="checkbox" id="toggleSwitch" onchange="toggleElements()"/><div></div>
+            </label>
+          </div>
+        <label for="images" class="drop-container hidden" id="dropcontainer">
+            <input type="file" id="images" accept="image/*">
+        </label>
+
+        <textarea id="textarea" rows="10" cols="100" class="text-van-ban hidden"></textarea>
+
+        <!-- Combobox 1 -->
+        <div class="combobox">
+            <label for="voiceSelect">Chọn giọng đọc:</label>
+            <select id="voiceSelect">
+                <option value="voice1">Giọng 1</option>
+                <option value="voice2">Giọng 2</option>
+                <!-- Thêm các option khác nếu cần -->
+            </select>
+        </div>
+
+        <!-- Combobox 2 -->
+        <div class="combobox">
+            <label for="bitrateSelect">Chọn bitrate:</label>
+            <select id="bitrateSelect">
+                <option value="128">128 kbps</option>
+                <option value="256">256 kbps</option>
+                <!-- Thêm các option khác nếu cần -->
+            </select>
+        </div>
+
+        <button onclick="convertAndUpload()">Chuyển</button>
+
+        <audio id="audioPlayer" controls></audio>
+        <button id="downloadBtn" disabled>Tải xuống</button>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
